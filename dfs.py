@@ -29,4 +29,8 @@ def dfs_path_length(graph, start, end):
             for neighbor in reversed(graph[node]):
                 stack.append((neighbor, depth + 1))
     return -1  # Si aucun chemin trouvé
+<<<<<<< 5149e9d19fb36bd6ffc90058fe476cf533902625
 #Add points
+=======
+# Algorithme DFS
+>>>>>>> Добавить комментарии2
