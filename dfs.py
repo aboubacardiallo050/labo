@@ -1,3 +1,6 @@
+def dfs_path_length(graph, start, end):
+    if start not in graph or end not in graph:
+        raise ValueError("Valeurs a ou b invalides")
 def dfs(graph, start):
     visited = []
     stack = [start]
