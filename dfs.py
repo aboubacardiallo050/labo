@@ -8,7 +8,7 @@ def dfs(graph, start):
             stack.extend(reversed(graph[node]))
     return visited
 
-# Exemple d'utilisation
+# Exemple d'utilisation du graphe
 if __name__ == "__main__":
     graph = {
         1: [3],
