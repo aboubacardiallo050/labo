@@ -1,3 +1,6 @@
+def dfs_path_length(graph, start, end):
+    if start not in graph or end not in graph:
+        raise ValueError("Valeurs a ou b invalides")
 def dfs(graph, start):
     visited = []
     stack = [start]
@@ -29,3 +32,6 @@ def dfs_path_length(graph, start, end):
             for neighbor in reversed(graph[node]):
                 stack.append((neighbor, depth + 1))
     return -1  # Si aucun chemin trouvé
+#Проверяет, существуют ли в графе начальный и конечный узлы
+if start not in graph or end not in graph:
+    raise ValueError("Valeurs a ou b invalides")
