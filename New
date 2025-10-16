@@ -1,0 +1,54 @@
+@startuml
+title Диаграмма "Гамбургер" для системы распознавания сущностей (NER)
+
+skinparam rectangle {
+  BackgroundColor White
+  BorderColor Black
+  FontSize 14
+}
+
+skinparam note {
+  BackgroundColor #F7F7F7
+  BorderColor #AAAAAA
+}
+
+' --- Верхний уровень ---
+rectangle "Организация системы, выполняющей NER\n(распознавание именованных сущностей)" as System {
+  
+  ' --- Функции (FU) и Технические средства (TS) ---
+  
+  rectangle "FU: Классификация сущностей" as FU1
+  rectangle "TS: ML-модель (BERT + CRF)" as TS1
+  
+  rectangle "FU: Извлечение кандидатов" as FU2
+  rectangle "TS: NLP-пакеты (spaCy, Natasha)" as TS2
+  
+  rectangle "FU: Предобработка текста" as FU3
+  rectangle "TS: Модуль ввода данных (парсеры, API)" as TS3
+  
+  rectangle "FU: Экспорт результатов" as FU4
+  rectangle "TS: Веб-интерфейс (REST API)" as TS4
+  
+  rectangle "FU: Управление словарями и правилами" as FU5
+  rectangle "TS: Словарь и правила обработки" as TS5
+  
+  rectangle "FU: Взаимодействие с пользователем" as FU6
+  rectangle "TS: Интерфейс пользователя (UI)" as TS6
+
+  ' --- Связи FU ↔ TS ---
+  FU1 -down- TS1
+  FU2 -down- TS2
+  FU3 -down- TS3
+  FU4 -down- TS4
+  FU5 -down- TS5
+  FU6 -down- TS6
+
+  ' --- Связи между функциями ---
+  FU3 --> FU2 : передает очищенный текст
+  FU2 --> FU1 : передает кандидатов
+  FU1 --> FU4 : передает результаты
+  FU5 --> FU2 : использует правила
+  FU6 --> FU4 : вызывает экспорт
+}
+
+@enduml
